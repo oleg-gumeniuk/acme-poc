@@ -1,0 +1,90 @@
+{
+  "users": [
+    {
+      "email": "Test",
+      "password": "test",
+      "id": "1",
+      "token": "05dafc66-bd91-43a0-a752-4dc40f039144"
+    },
+    {
+      "email": "Test2",
+      "password": "test2",
+      "id": "1",
+      "token": "05dafc66-bd91-43a0-a752-4dc40f039144"
+    }
+  ],
+  "settings": [
+    {
+      "name": "Number of entries",
+      "value": 0,
+      "options": [
+        "10",
+        "20",
+        "30"
+      ],
+      "id": "1"
+    },
+    {
+      "name": "Button color",
+      "value": 0,
+      "options": [
+        "red",
+        "blue",
+        "green"
+      ],
+      "id": "2"
+    }
+  ],
+  "dashboard": [
+    {
+      "count": 22,
+      "label": "In viverra ullamcorper sodales",
+      "id": "1"
+    },
+    {
+      "count": 50,
+      "label": "Quisque ac gravida eros",
+      "id": "2"
+    },
+    {
+      "count": 9,
+      "label": "Vivamus vel placerat erat",
+      "id": "3"
+    },
+    {
+      "count": 1,
+      "label": "Nullam euismod condimentum tortor",
+      "id": "4"
+    },
+    {
+      "count": 18,
+      "label": "Fusce id ante accumsan",
+      "id": "5"
+    },
+    {
+      "count": 22,
+      "label": "In viverra ullamcorper sodales",
+      "id": "6"
+    },
+    {
+      "count": 50,
+      "label": "Quisque ac gravida eros",
+      "id": "7"
+    },
+    {
+      "count": 9,
+      "label": "Vivamus vel placerat erat",
+      "id": "8"
+    },
+    {
+      "count": 1,
+      "label": "Nullam euismod condimentum tortor",
+      "id": "9"
+    },
+    {
+      "count": 18,
+      "label": "Fusce id ante accumsan",
+      "id": "10"
+    }
+  ]
+}
