@@ -19,6 +19,10 @@ import DashboardItem from '../components/DashboardItem';
 
 import LogoTitle from '../components/LogoTitle';
 
+/**
+ * A Dashboard used to display a list of items obtained via API
+ * as well as an action button which opens a native browser
+ */
 class DashboardScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     headerTitle: () => <LogoTitle />,

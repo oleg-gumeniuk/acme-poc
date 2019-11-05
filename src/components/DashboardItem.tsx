@@ -27,6 +27,10 @@ const styles = StyleSheet.create({
   }
 });
 
+/**
+ * A component that represents a single dashboard item
+ * @param item is a dashboard list item to be populated
+ */
 export default function DashboardItem({ item }) {
   return (
     <View style={styles.dashboardItem}>

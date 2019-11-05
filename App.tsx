@@ -1,22 +1,17 @@
 import React from 'react';
-import { StyleSheet, Image, Text } from 'react-native';
+import { Text } from 'react-native';
 import LoginScreen from './src/screens/LoginScreen';
 import Dashboard from './src/screens/DashboardScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
+import Loading from './src/components/Loading';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
-
 const MainNavigator = createStackNavigator({
+  Loading: {
+    screen: Loading
+  },
   Login: {
     screen: LoginScreen,
     navigationOptions: {

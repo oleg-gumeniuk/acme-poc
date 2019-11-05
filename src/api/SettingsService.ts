@@ -1,23 +1,34 @@
-import api_urls from '../config/urls';
+import { db } from '../config/firebase';
 
-export function getSettings() {
-  return fetch(api_urls.SETTINGS)
-    .then(res => res.json())
-    .catch(error => console.error('Error:', error));
+/**
+ * Converts the data in a snapshot into an array of objects with the unique id as one of the properties
+ */
+function snapshotToArray(snapshot) {
+  const resultArr = [];
+  snapshot.forEach(childSnapshot => {
+    const item = childSnapshot.val();
+    item.key = childSnapshot.key;
+    resultArr.push(item);
+  });
+
+  return resultArr;
 }
 
-export function updateSetting(item, value) {
-  return fetch(api_urls.SETTINGS + `/${item.id}`, {
-    method: 'PUT',
-    body: JSON.stringify({
-      name: item.name,
-      value: value,
-      options: item.options
-    }),
-    headers: new Headers({
-      'Content-Type': 'application/json'
-    })
-  })
-    .then(res => res.json())
-    .catch(error => console.error('Error:', error));
+/**
+ * Fetches the data to populate the DashboardScreen
+ * @param item is a settings item being updated
+ * @param val is a new value of a settings item
+ */
+export function updateSetting({ item, val }) {
+  let settingValueRef = db.ref('/settings/' + item.key);
+  return settingValueRef.update({ value: val });
+}
+
+/**
+ * Fetches the data to populate the SettingsScreen
+ */
+export function getSettings() {
+  const settingsRef = db.ref('settings/');
+
+  return settingsRef.once('value').then(snapshotToArray);
 }

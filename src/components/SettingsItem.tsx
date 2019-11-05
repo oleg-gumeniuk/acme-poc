@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Text, View, StyleSheet } from 'react-native';
 import { RadioGroup, RadioButton } from 'react-native-flexi-radio-button';
 
@@ -23,13 +24,18 @@ const currentIndex = item => {
   return item.options.indexOf(item.value);
 };
 
+/**
+ * A component that represents a single setting item
+ * @param item is a setting with options to be rendered
+ * @param onSelect is a referense to a parent function that handles the onSelect event
+ */
 export default function SettingsItem({ item, onSelect }) {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{item.name}</Text>
       <RadioGroup
         style={styles.buttons}
-        onSelect={value => onSelect(item, value)}
+        onSelect={(index, value) => onSelect(item, value)}
         selectedIndex={currentIndex(item)}
       >
         {item.options.map((option, index) => {

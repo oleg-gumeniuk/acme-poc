@@ -14,16 +14,21 @@ import colors from '../config/colors';
 import strings from '../config/strings';
 import constants from '../config/constants';
 
-import { doAuth } from '../api/AuthService';
+import { auth } from '../config/firebase';
 
 interface State {
   email: string;
   password: string;
   emailTouched: boolean;
   passwordTouched: boolean;
-  isWrongCredentialError: boolean;
+  displayErrorMsg: boolean;
+  errorMsg: string;
 }
 
+/**
+ * A Log in screen where which handles the authentication operations
+ *
+ */
 class LoginScreen extends React.Component<{}, State> {
   passwordInputRef = React.createRef<FormTextInput>();
 
@@ -32,8 +37,17 @@ class LoginScreen extends React.Component<{}, State> {
     password: '',
     emailTouched: false,
     passwordTouched: false,
-    isWrongCredentialError: false
+    displayErrorMsg: false,
+    errorMsg: ''
   };
+
+  componentDidUpdate() {
+    if (!this.state.displayErrorMsg && this.state.errorMsg) {
+      this.setState({
+        errorMsg: ''
+      });
+    }
+  }
 
   handleEmailChange = (email: string) => {
     this.setState({ email: email });
@@ -58,18 +72,21 @@ class LoginScreen extends React.Component<{}, State> {
   };
 
   handleLoginPress = () => {
-    doAuth(this.state).then(response => {
-      if (response.length && response[0].token) {
-        this.props.navigation.navigate('Dashboard');
-        this.setState({
-          isWrongCredentialError: false
-        });
-        return;
-      }
-      this.setState({
-        isWrongCredentialError: true
-      });
+    this.setState({
+      displayErrorMsg: false
     });
+
+    auth
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(() => {
+        this.props.navigation.navigate('Dashboard');
+      })
+      .catch(error => {
+        this.setState({
+          displayErrorMsg: true,
+          errorMsg: error.message
+        });
+      });
   };
 
   render() {
@@ -84,9 +101,7 @@ class LoginScreen extends React.Component<{}, State> {
         <Image source={imageLogo} style={styles.logo} />
         <View style={styles.form}>
           <Text style={styles.wrongCredentialsText}>
-            {this.state.isWrongCredentialError
-              ? strings.INCORRECT_CREDENTIALS
-              : ''}
+            {this.state.errorMsg ? this.state.errorMsg : ''}
           </Text>
           <FormTextInput
             value={this.state.email}
@@ -126,11 +141,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.WHITE,
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'center'
   },
   logo: {
     flex: 1,
-    width: '100%',
+    width: '80%',
     resizeMode: 'contain',
     alignSelf: 'center'
   },
@@ -139,11 +154,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '80%'
   },
+
   wrongCredentialsText: {
-    fontSize: 12,
+    fontSize: 14,
     textAlign: 'center',
     color: 'red',
-    margin: 5
+    marginBottom: 5
   }
 });
 

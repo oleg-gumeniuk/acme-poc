@@ -9,6 +9,9 @@ interface Props {
   onPress: () => void;
 }
 
+/**
+ * A component that renders a custom styled button
+ */
 class Button extends React.Component<Props> {
   render() {
     const { style, disabled, label, onPress } = this.props;

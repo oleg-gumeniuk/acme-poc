@@ -12,6 +12,9 @@ type Props = TextInputProps & {
   error?: string;
 };
 
+/**
+ * A customized form text input with an error message box below the input
+ */
 class FormTextInput extends React.Component<Props> {
   textInputRef = React.createRef<TextInput>();
 
@@ -24,7 +27,7 @@ class FormTextInput extends React.Component<Props> {
   render() {
     const { error, style, ...otherProps } = this.props;
     return (
-      <View style={[styles.container, style]}>
+      <View style={[styles.container]}>
         <TextInput
           ref={this.textInputRef}
           selectionColor={colors.DODGER_BLUE}
