@@ -12,6 +12,11 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     padding: 10
   },
+  avatarImg: {
+    width: 50,
+    height: 50,
+    borderRadius: 25
+  },
   info: {
     flex: 8,
     margin: 5,
@@ -37,7 +42,7 @@ export default function DashboardItem({ item }) {
       <View style={styles.avatar}>
         <Image
           source={{ uri: item.picture.thumbnail }}
-          style={{ width: 50, height: 50, borderRadius: 25 }}
+          style={styles.avatarImg}
         />
       </View>
 

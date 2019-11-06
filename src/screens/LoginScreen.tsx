@@ -26,7 +26,7 @@ interface State {
 }
 
 /**
- * A Log in screen where which handles the authentication operations
+ * A Log in screen which handles an authentication operations
  *
  */
 class LoginScreen extends React.Component<{}, State> {
@@ -49,13 +49,9 @@ class LoginScreen extends React.Component<{}, State> {
     }
   }
 
-  handleEmailChange = (email: string) => {
-    this.setState({ email: email });
-  };
+  handleEmailChange = email => this.setState({ email: email });
 
-  handlePasswordChange = (password: string) => {
-    this.setState({ password: password });
-  };
+  handlePasswordChange = password => this.setState({ password: password });
 
   handleEmailSubmitPress = () => {
     if (this.passwordInputRef.current) {

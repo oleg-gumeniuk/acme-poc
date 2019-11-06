@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 4,
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: 'rgba(255,255,255,0.7)'
+    borderColor: colors.WHITE
   },
   containerEnabled: {
     opacity: 1

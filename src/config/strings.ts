@@ -4,7 +4,7 @@ const strings = {
   INCORRECT_CREDENTIALS:
     'Wrong email or password. Please check your credentials and try again',
   LOGIN: 'Log In',
-  LOGOUT: 'Log out',
+  LOGOUT: 'Log Out',
   PASSWORD_PLACEHOLDER: 'Password',
   PASSWORD_REQUIRED: 'Password is required',
   SHOW_ALL: 'Show All'

@@ -2,6 +2,8 @@ import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
+import colors from '../config/colors';
+import { Alert } from 'react-native';
 
 import {
   FlatList,
@@ -32,7 +34,11 @@ class DashboardScreen extends React.Component {
         style={{ marginRight: 10 }}
         onPress={() => navigation.navigate('Settings')}
       >
-        <FontAwesomeIcon size={25} style={{ color: '#b2b2b2' }} icon={faCog} />
+        <FontAwesomeIcon
+          size={25}
+          style={{ color: colors.SILVER }}
+          icon={faCog}
+        />
       </TouchableOpacity>
     )
   });
@@ -75,7 +81,7 @@ class DashboardScreen extends React.Component {
       if (supported) {
         Linking.openURL(api_urls.SHOW_ALL);
       } else {
-        console.log("Don't know how to open URI: " + api_urls.SHOW_ALL);
+        Alert.alert("Don't know how to open URI: " + api_urls.SHOW_ALL);
       }
     });
   };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, YellowBox } from 'react-native';
 import LoginScreen from './src/screens/LoginScreen';
 import Dashboard from './src/screens/DashboardScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
@@ -7,6 +7,8 @@ import Loading from './src/components/Loading';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+
+YellowBox.ignoreWarnings(['Setting a timer']);
 
 const MainNavigator = createStackNavigator({
   Loading: {

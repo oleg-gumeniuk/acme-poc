@@ -34,7 +34,7 @@ class SettingsScreen extends React.Component {
           <SettingsList />
         </View>
         <View style={styles.bottom}>
-          <View style={{ width: '80%' }}>
+          <View style={styles.buttonContainer}>
             <Button
               style={styles.button}
               label={strings.LOGOUT}
@@ -61,6 +61,9 @@ const styles = StyleSheet.create({
     borderTopColor: '#f7f7f7',
     borderTopWidth: 4,
     alignItems: 'center'
+  },
+  buttonContainer: {
+    width: '80%'
   },
   button: {
     marginTop: 15,

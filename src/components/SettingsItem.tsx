@@ -20,14 +20,12 @@ const styles = StyleSheet.create({
   }
 });
 
-const currentIndex = item => {
-  return item.options.indexOf(item.value);
-};
+const currentIndex = item => item.options.indexOf(item.value);
 
 /**
  * A component that represents a single setting item
  * @param item is a setting with options to be rendered
- * @param onSelect is a referense to a parent function that handles the onSelect event
+ * @param onSelect is a reference to a parent function that handles the onSelect event
  */
 export default function SettingsItem({ item, onSelect }) {
   return (

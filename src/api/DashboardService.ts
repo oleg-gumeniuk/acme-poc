@@ -6,8 +6,8 @@ import api_urls from '../config/urls';
  * @param seed allows to generate different sets of users
  */
 export function getDashboard({ page, seed }) {
-  const params = `?results=20&nat=gb&seed=${seed}&page=${page}`;
-  return fetch(api_urls.DASHBOARD + params)
+  const url = `${api_urls.DASHBOARD}?results=20&nat=gb&seed=${seed}&page=${page}`;
+  return fetch(url)
     .then(res => res.json())
     .catch(error => console.error('Error:', error));
 }
