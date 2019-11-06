@@ -27,7 +27,7 @@ Dashboard and Settings Screens
  * **FontAwesome** was used for icons in the app
  * **React Navigation Stack** was integrated for the navigation purposes
  * **React Gesture Handler** was integrated in order to handle swipe gestures
- * **Random User API** was used to populate the Dasboard
+ * **Random User API** was used to populate the Dashboard
  
  ### Live Demo 
  
